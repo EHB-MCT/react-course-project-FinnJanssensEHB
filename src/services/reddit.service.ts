@@ -8,11 +8,12 @@ class RedditService {
   parser = new XMLParser();
 
   public async getFrontPage() {
-    fetch(this.BASE_URL)
+    return fetch(this.BASE_URL)
       .then((response) => response.text())
       .then((str) => {
         let jObj = this.parser.parse(str);
         console.log(jObj.feed.entry);
+        return jObj.feed.entry;
       });
   }
 }
