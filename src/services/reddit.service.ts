@@ -1,5 +1,5 @@
 import React from "react";
-import { XMLParser, XMLBuilder, XMLValidator } from "fast-xml-parser";
+import { XMLParser } from "fast-xml-parser";
 
 class RedditService {
   private readonly BASE_URL =
@@ -12,8 +12,10 @@ class RedditService {
       .then((response) => response.text())
       .then((str) => {
         let jObj = this.parser.parse(str);
-        console.log(jObj.feed.entry);
         return jObj.feed.entry;
+      })
+      .catch(function (error) {
+        return error;
       });
   }
 }

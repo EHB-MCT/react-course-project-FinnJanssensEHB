@@ -1,23 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { redditService } from "./services/reddit.service";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPosts } from "./store/posts/facade";
+import { selectPosts } from "./store/posts/selectors";
+import { Post } from "./store/posts/initialState";
+import { StoreState } from "./store/store.types";
 
 function App() {
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    redditService.getFrontPage().then((posts) => setPosts(posts));
-  }, []);
+    dispatch(fetchPosts());
+  }, [dispatch]);
 
-  let [posts, setPosts] = useState([]);
+  const posts = useSelector<StoreState, Post[]>((state) => selectPosts(state));
 
-  function createMarkup(s: string) {
-    return { __html: s };
-  }
+  console.log(posts);
 
   return (
     <>
-      {posts.map((post: any) => {
-        return <div dangerouslySetInnerHTML={createMarkup(post.content)} />;
+      {posts.map((post: Post) => {
+        return (
+          <div>
+            <h2>{post.title}</h2>
+            <h3>{post.author}</h3>
+          </div>
+        );
       })}
     </>
   );
