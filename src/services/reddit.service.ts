@@ -12,6 +12,7 @@ class RedditService {
       .then((response) => response.text())
       .then((str) => {
         let jObj = this.parser.parse(str);
+        console.log(jObj.feed.entry);
         return jObj.feed.entry;
       })
       .catch(function (error) {

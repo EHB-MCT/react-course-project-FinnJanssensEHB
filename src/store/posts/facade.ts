@@ -9,14 +9,19 @@ export const fetchPosts = () => {
     redditService
       .getFrontPage()
       .then((res) => {
+        let parser = new DOMParser();
         const posts: Post[] = res.map((post: any): Post => {
+          const doc = parser.parseFromString(post.content, "text/html");
+
+          let subr = post.content.substring(post.content.indexOf(" r/"));
+
           return {
             id: post.id || "",
             title: post.title || "",
             author: post.author?.name || "",
             content: "",
-            img: "",
-            subreddit: "",
+            img: doc.getElementsByTagName("img")[0]?.src || "",
+            subreddit: subr.substring(0, subr.indexOf("</")),
             published: post.published || "",
             updated: post.updated || "",
           };

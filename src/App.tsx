@@ -25,6 +25,8 @@ function App() {
           <div>
             <h2>{post.title}</h2>
             <h3>{post.author}</h3>
+            <h4>{post.subreddit}</h4>
+            <img src={post.img} alt="" />
           </div>
         );
       })}
