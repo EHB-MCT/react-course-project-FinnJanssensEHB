@@ -1,0 +1,14 @@
+@import "../scss/var";
+
+h2 {
+  color: #0000ff;
+}
+
+.postListItem {
+  padding: 1em;
+  margin: auto;
+  margin-top: 1em;
+  background-color: $post-background;
+  border-radius: 15px;
+  width: 50%;
+}
