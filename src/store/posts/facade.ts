@@ -9,21 +9,18 @@ export const fetchPosts = () => {
     redditService
       .getFrontPage()
       .then((res) => {
-        let parser = new DOMParser();
         const posts: Post[] = res.map((post: any): Post => {
-          const doc = parser.parseFromString(post.content, "text/html");
-
-          let subr = post.content.substring(post.content.indexOf(" r/"));
+          console.log(post);
 
           return {
-            id: post.id || "",
-            title: post.title || "",
-            author: post.author?.name || "",
+            id: post.data.id || "",
+            title: post.data.title || "",
+            author: post.data.author || "",
             content: "",
-            img: doc.getElementsByTagName("img")[0]?.src || "",
-            subreddit: subr.substring(0, subr.indexOf("</")),
-            published: post.published || "",
-            updated: post.updated || "",
+            thumbnail: post.data.thumbnail || "",
+            subreddit: post.data.subreddit,
+            created: post.data.created || 0,
+            score: post.data.score || 0,
           };
         });
         dispatch(ACTIONS.fetchPostsSuccesAction(posts));

@@ -3,10 +3,10 @@ export interface Post {
   title: string;
   author: string;
   content: string;
-  img: string;
+  thumbnail: string;
   subreddit: string;
-  published: string;
-  updated: string;
+  created: number;
+  score: number;
 }
 
 export interface PostsState {
