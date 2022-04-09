@@ -1,0 +1,31 @@
+@import "../scss/var";
+
+.Header {
+  grid-column: span 12;
+  height: 85px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 16px;
+  align-items: center;
+  background-color: #fff;
+}
+
+.logo-container {
+  grid-column: 2/3;
+}
+
+.logo-container > img {
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.search-container {
+  grid-column: 4/6;
+}
+
+.header-nav {
+  grid-column: 7/10;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 16px;
+}

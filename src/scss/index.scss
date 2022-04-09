@@ -1,9 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;900&display=swap");
+@import "../scss/var";
 
 body {
   margin: 0;
   font-family: "Noto Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
+  background-color: $background;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 16px;
 }

@@ -1,14 +1,33 @@
 @import "../scss/var";
 
-h2 {
-  color: #0000ff;
-}
-
 .postListItem {
   padding: 1em;
   margin: auto;
   margin-top: 1em;
   background-color: $post-background;
   border-radius: 15px;
-  width: 50%;
+  display: grid;
+  grid-template-columns: 1fr 8fr 2fr;
+
+  .votes-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .post-content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .post-image-container {
+    img {
+      object-fit: cover;
+      width: 200px;
+      height: 200px;
+      border-radius: $border-radius;
+    }
+  }
 }
