@@ -1,11 +1,8 @@
 import React from "react";
-import { XMLParser } from "fast-xml-parser";
 
 class RedditService {
   private readonly BASE_URL =
     "https://mighty-earth-63459.herokuapp.com/https://www.reddit.com/.json";
-
-  parser = new XMLParser();
 
   public async getFrontPage() {
     return fetch(this.BASE_URL)

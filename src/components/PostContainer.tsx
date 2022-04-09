@@ -19,7 +19,7 @@ export default function PostContainer() {
   console.log(posts);
 
   return (
-    <div className="PostContainer">
+    <div className="PostContainer box-shadow">
       {posts.map((post: Post) => {
         return <PostListItem post={post}></PostListItem>;
       })}

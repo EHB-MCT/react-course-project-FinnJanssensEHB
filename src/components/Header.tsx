@@ -4,7 +4,7 @@ import "./Header.scss";
 
 export default function Header() {
   return (
-    <div className="Header">
+    <div className="Header box-shadow">
       <div className="logo-container">
         <img
           src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"

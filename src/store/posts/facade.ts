@@ -19,7 +19,7 @@ export const fetchPosts = () => {
             content: "",
             thumbnail: post.data.thumbnail || "",
             subreddit: post.data.subreddit,
-            created: post.data.created || 0,
+            created: post.data.created_utc || 0,
             score: post.data.score || 0,
           };
         });

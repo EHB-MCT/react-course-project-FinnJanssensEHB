@@ -5,10 +5,10 @@ import "./PostListItem.scss";
 export default function PostListItem(props: any) {
   let post: Post = props.post;
   return (
-    <div className="postListItem">
+    <div className="postListItem box-shadow">
       <div className="votes-container">
         <p>up</p>
-        <p>456K</p>
+        <p>{post.score}</p>
         <p>down</p>
       </div>
       <div className="post-content-container">
@@ -21,7 +21,7 @@ export default function PostListItem(props: any) {
         </div>
       </div>
       <div className="post-image-container">
-        {post.img ? <img src={post.img} alt="" /> : <></>}
+        {post.thumbnail ? <img src={post.thumbnail} alt="" /> : <></>}
       </div>
     </div>
   );
