@@ -1,0 +1,10 @@
+@import "../scss/var";
+
+input {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: $background;
+  padding: 0.75em;
+  width: 90%;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import Search from "./Search";
 import "./Header.scss";
 
 export default function Header() {
@@ -11,7 +12,7 @@ export default function Header() {
         />
       </div>
       <div className="search-container">
-        <input type="text" />
+        <Search></Search>
       </div>
       <div className="header-nav">
         <p>Popular</p>
