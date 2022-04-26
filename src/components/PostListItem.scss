@@ -8,6 +8,7 @@
   border-radius: 15px;
   display: grid;
   grid-template-columns: 1fr 8fr 2fr;
+  column-gap: 10px;
   height: 120px;
   align-items: center;
 
@@ -16,12 +17,33 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    height: 100%;
   }
 
   .post-content-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-self: flex-end;
+    h2 {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 0.9em;
+      font-weight: 300;
+      margin-bottom: 1em;
+    }
+
+    .post-actions-container {
+      justify-self: flex-end;
+      width: 30%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.75em;
+    }
   }
 
   .post-image-container {

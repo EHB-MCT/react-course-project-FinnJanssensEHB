@@ -7,22 +7,33 @@ export default function PostListItem(props: any) {
   return (
     <div className="postListItem box-shadow">
       <div className="votes-container">
-        <p>up</p>
+        <span aria-hidden="true" data-icon="&#xe90e;"></span>
         <p>{post.score}</p>
-        <p>down</p>
+        <span aria-hidden="true" data-icon="&#xe90d;"></span>
       </div>
       <div className="post-content-container">
-        <h2>{post.title}</h2>
+        <h2>
+          {post.title.length > 50
+            ? post.title.substring(0, 49) + "..."
+            : post.title}
+        </h2>
         <p>
-          {post.subreddit} - Posted by {post.author} x hours ago
+          r/{post.subreddit} - Posted by u/{post.author} x hours ago
         </p>
         <div className="post-actions-container">
-          <p>award comment share more</p>
+          <span aria-hidden="true" data-icon="&#xe901;"></span>
+          <span aria-hidden="true" data-icon="&#xe900;"></span>
+          <span aria-hidden="true" data-icon="&#xe90a;"></span>
+          <span aria-hidden="true" data-icon="&#xe906;"></span>
         </div>
       </div>
-      <div className="post-image-container">
-        {post.thumbnail ? <img src={post.thumbnail} alt="" /> : <></>}
-      </div>
+      {post.thumbnail.startsWith("http") ? (
+        <div className="post-image-container">
+          <img src={post.thumbnail} alt="" />
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
