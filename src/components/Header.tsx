@@ -15,9 +15,15 @@ export default function Header() {
         <Search></Search>
       </div>
       <div className="header-nav">
-        <p>Popular</p>
-        <p>All</p>
-        <p>Live</p>
+        <p>
+          <span aria-hidden="true" data-icon="&#xe910;"></span>&nbsp; Popular
+        </p>
+        <p>
+          <span aria-hidden="true" data-icon="&#xe911;"></span>&nbsp; All
+        </p>
+        <p>
+          <span aria-hidden="true" data-icon="&#xe912;"></span>&nbsp; Live
+        </p>
       </div>
       <div className="notifications-container">
         <p>notifications</p>
