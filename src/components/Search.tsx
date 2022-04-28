@@ -10,7 +10,7 @@ export default function Search() {
           data-icon="&#xe913;"
           className="search-icon"
         ></span>
-        <input type="text" name="" id="" placeholder="       Search Reddit" />
+        <input type="text" name="" id="" placeholder="Search Reddit" />
       </div>
     </>
   );
