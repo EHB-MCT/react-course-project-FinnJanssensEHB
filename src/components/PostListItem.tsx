@@ -3,14 +3,52 @@ import { Post } from "../store/posts/initialState";
 import "./PostListItem.scss";
 
 export default function PostListItem(props: any) {
-  const [MoreActions, ShowMoreActions] = useState(false);
   let post: Post = props.post;
+  const [MoreActions, ShowMoreActions] = useState(false);
+  const [Votes, ChangeVotes] = useState(post.score);
+  const [Upvote, SetUpvote] = useState(false);
+  const [Downvote, SetDownvote] = useState(false);
+
+  function upVote() {
+    if (!Upvote) {
+      ChangeVotes(Votes + 1);
+      SetUpvote(true);
+      SetDownvote(false);
+    } else {
+      ChangeVotes(Votes - 1);
+      SetUpvote(false);
+      SetDownvote(false);
+    }
+  }
+
+  function downVote() {
+    if (!Downvote) {
+      ChangeVotes(Votes - 1);
+      SetDownvote(true);
+      SetUpvote(false);
+    } else {
+      ChangeVotes(Votes + 1);
+      SetDownvote(false);
+      SetUpvote(false);
+    }
+  }
+
   return (
     <div className="postListItem box-shadow">
       <div className="votes-container">
-        <span aria-hidden="true" data-icon="&#xe907;"></span>
-        <p>{post.score}</p>
-        <span aria-hidden="true" data-icon="&#xe908;"></span>
+        <span
+          aria-hidden="true"
+          data-icon="&#xe907;"
+          onClick={upVote}
+          className={Upvote ? "orange" : ""}
+        ></span>
+        <p className={Upvote || Downvote ? "orange" : ""}>{Votes}</p>
+        <span
+          aria-hidden="true"
+          data-icon="&#xe908;"
+          onClick={downVote}
+          className={Downvote ? "orange" : ""}
+        ></span>
       </div>
       <div className="post-content-container">
         <h2>

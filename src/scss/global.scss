@@ -1,3 +1,5 @@
+@import "./var";
+
 @font-face {
   font-family: "icomoon";
   src: url("../fonts/icomoon/icomoon.eot");
@@ -17,4 +19,8 @@
   text-transform: none;
   line-height: 1;
   -webkit-font-smoothing: antialiased;
+}
+
+.orange {
+  color: $orange;
 }
