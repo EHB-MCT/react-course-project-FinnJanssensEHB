@@ -21,6 +21,8 @@ export const fetchPosts = () => {
             subreddit: post.data.subreddit,
             created: post.data.created_utc || 0,
             score: post.data.score || 0,
+            flair: post.data.link_flair_text || "",
+            flair_background_color: post.data.link_flair_background_color || "",
           };
         });
         dispatch(ACTIONS.fetchPostsSuccesAction(posts));

@@ -9,6 +9,8 @@ export default function PostListItem(props: any) {
   const [Upvote, SetUpvote] = useState(false);
   const [Downvote, SetDownvote] = useState(false);
 
+  const emojiRegex: RegExp = /\:(.*?)\:/g;
+
   function upVote() {
     if (!Upvote) {
       ChangeVotes(Votes + 1);
@@ -51,6 +53,12 @@ export default function PostListItem(props: any) {
         ></span>
       </div>
       <div className="post-content-container">
+        <p
+          className="flair"
+          style={{ backgroundColor: post.flair_background_color }}
+        >
+          {post.flair.replace(emojiRegex, "")}
+        </p>
         <h2>
           {post.title.length > 50
             ? post.title.substring(0, 49) + "..."

@@ -24,6 +24,13 @@
   }
 
   .post-content-container {
+    .flair {
+      border-radius: $border-radius;
+      font-size: 0.8em;
+      font-weight: 600;
+      padding: 0.4em;
+      width: fit-content;
+    }
     display: flex;
     flex-direction: column;
     justify-content: space-around;

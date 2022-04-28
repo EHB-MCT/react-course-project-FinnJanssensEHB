@@ -7,6 +7,8 @@ export interface Post {
   subreddit: string;
   created: number;
   score: number;
+  flair: string;
+  flair_background_color: string;
 }
 
 export interface PostsState {
