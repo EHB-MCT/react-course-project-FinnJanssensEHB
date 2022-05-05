@@ -18,6 +18,23 @@ class RedditService {
         return error;
       });
   }
+
+  public async getPost(subreddit: string, id: string) {
+    return fetch(
+      `https://mighty-earth-63459.herokuapp.com/https://www.reddit.com/r/${subreddit}/${id}.json`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("fetch", data);
+
+        return data;
+      })
+      .catch(function (error) {
+        console.log("error", error);
+
+        return error;
+      });
+  }
 }
 
 export const redditService = new RedditService();

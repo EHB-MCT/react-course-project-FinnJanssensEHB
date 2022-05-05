@@ -37,7 +37,7 @@ export default function PostListItem(props: any) {
   }
 
   return (
-    <Link className="postListItem box-shadow" to={"/post/" + post.id}>
+    <div className="postListItem box-shadow">
       <div className="votes-container">
         <span
           aria-hidden="true"
@@ -53,7 +53,10 @@ export default function PostListItem(props: any) {
           className={Downvote ? "orange" : ""}
         ></span>
       </div>
-      <div className="post-content-container">
+      <Link
+        to={`/r/${post.subreddit}/${post.id}`}
+        className="post-content-container"
+      >
         <p
           className="flair"
           style={{ backgroundColor: post.flair_background_color }}
@@ -98,7 +101,7 @@ export default function PostListItem(props: any) {
             )}
           </div>
         </div>
-      </div>
+      </Link>
       {post.thumbnail.startsWith("http") ? (
         <div className="post-image-container">
           <img src={post.thumbnail} alt="" />
@@ -106,6 +109,6 @@ export default function PostListItem(props: any) {
       ) : (
         <></>
       )}
-    </Link>
+    </div>
   );
 }

@@ -1,7 +1,16 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import { redditService } from "../services/reddit.service";
 
 export default function Detail() {
   const params = useParams();
-  return <>{params.id?.toString()}</>;
+  redditService.getPost(params.subreddit || "", params.id || "").then((res) => {
+    console.log(res);
+  });
+  return (
+    <>
+      {params.id}
+      {params.subreddit}
+    </>
+  );
 }

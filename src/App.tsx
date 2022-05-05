@@ -12,10 +12,12 @@ function App() {
     <>
       <Header></Header>
       <Routes>
-        <Route path="post">
-          <Route path=":id" element={<Detail />} />
+        <Route index element={<Index />} />
+        <Route path="r">
+          <Route path=":subreddit">
+            <Route path=":id" element={<Detail />} />
+          </Route>
         </Route>
-        <Route path="/" element={<Index />} />
       </Routes>
       <Footer></Footer>
     </>
