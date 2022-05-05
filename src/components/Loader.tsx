@@ -6,16 +6,15 @@ interface IProps {
 
 export default function Loader(props: IProps) {
   const loaderItems: Array<any> = [];
-  const loaderItem = () => (
-    <ContentLoader viewBox="0 0 380 70">
+  const loaderItem = (props: number) => (
+    <ContentLoader viewBox="0 0 380 65" key={props}>
       {/* Only SVG shapes */}
-      <rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
-      <rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
-      <rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
+      <rect x="0" y="0" rx="5" ry="5" width="315" height="60" />
+      <rect x="320" y="0" rx="5" ry="5" width="60" height="60" />
     </ContentLoader>
   );
   for (let i = 0; i < props.instances; i++) {
-    loaderItems.push(loaderItem());
+    loaderItems.push(loaderItem(i));
   }
 
   return <>{loaderItems.map((item) => item)}</>;
