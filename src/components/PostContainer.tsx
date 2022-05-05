@@ -7,7 +7,7 @@ import { StoreState } from "../store/store.types";
 import PostListItem from "./PostListItem";
 import "./PostContainer.scss";
 import { useLoading } from "../hooks/useLoading.hook";
-import { Loader } from "./Loader";
+import Loader from "./Loader";
 
 export default function PostContainer() {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export default function PostContainer() {
   return (
     <div className="PostContainer box-shadow">
       {loading ? (
-        <h1>LOADING</h1>
+        <Loader instances={10} />
       ) : (
         posts.map((post: Post) => {
           return <PostListItem post={post} key={post.id}></PostListItem>;

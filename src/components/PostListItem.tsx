@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Post } from "../store/posts/initialState";
 import "./PostListItem.scss";
 
@@ -36,7 +37,7 @@ export default function PostListItem(props: any) {
   }
 
   return (
-    <div className="postListItem box-shadow">
+    <Link className="postListItem box-shadow" to={"/post/" + post.id}>
       <div className="votes-container">
         <span
           aria-hidden="true"
@@ -105,6 +106,6 @@ export default function PostListItem(props: any) {
       ) : (
         <></>
       )}
-    </div>
+    </Link>
   );
 }

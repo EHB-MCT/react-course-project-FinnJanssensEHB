@@ -11,6 +11,8 @@
   column-gap: 10px;
   height: 120px;
   align-items: center;
+  text-decoration: none;
+  color: black;
 
   .votes-container {
     display: flex;
@@ -20,6 +22,11 @@
     height: 90%;
     span {
       font-size: 1.5em;
+      transition: transform 100ms ease-in-out;
+      &:hover {
+        transform: scale(110%);
+        color: $orange;
+      }
     }
   }
 
