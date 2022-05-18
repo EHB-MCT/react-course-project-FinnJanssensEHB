@@ -1,5 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import PostDetail from "../components/PostDetail";
 import { redditService } from "../services/reddit.service";
 
 export default function Detail() {
@@ -9,8 +10,10 @@ export default function Detail() {
   });
   return (
     <>
-      {params.id}
-      {params.subreddit}
+      <PostDetail
+        subreddit={params.subreddit || ""}
+        id={params.id || ""}
+      ></PostDetail>
     </>
   );
 }

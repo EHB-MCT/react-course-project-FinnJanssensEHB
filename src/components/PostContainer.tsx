@@ -13,13 +13,15 @@ export default function PostContainer() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("about to dispatch");
+
     dispatch(fetchPosts());
   }, [dispatch]);
 
   const posts = useSelector<StoreState, Post[]>((state) => selectPosts(state));
   const loading = useLoading(posts);
 
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <div className="PostContainer box-shadow">
