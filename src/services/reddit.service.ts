@@ -1,4 +1,5 @@
 import React from "react";
+import { Post, PostDetail, Comment } from "../store/posts/initialState";
 
 class RedditService {
   private readonly BASE_URL =
@@ -8,31 +9,66 @@ class RedditService {
     return fetch(this.BASE_URL)
       .then((response) => response.json())
       .then((data) => {
-        console.log("fetch", data.data.children);
-
         return data.data.children;
       })
       .catch(function (error) {
-        console.log("error", error);
-
         return error;
       });
+  }
+
+  private mapComments(data: any[]): Comment[] {
+    if (Array.isArray(data) && data.length > 0 && data != null) {
+      console.log(data);
+
+      console.log("true");
+
+      const comments: Comment[] = data.map((comment: any): Comment => {
+        return {
+          id: comment.data.id || "",
+          author: comment.data.author || "",
+          body: comment.data.body || "",
+          score: comment.data.score || 0,
+          children: [],
+        };
+      });
+      return comments;
+    } else {
+      return [];
+    }
   }
 
   public async getPost(subreddit: string, id: string) {
     return fetch(
       `https://mighty-earth-63459.herokuapp.com/https://www.reddit.com/r/${subreddit}/${id}.json`
     )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("fetch", data);
-
-        return data;
+      .then(async (response) => {
+        if (response.ok) {
+          return response.json();
+        }
       })
-      .catch(function (error) {
-        console.log("error", error);
+      .then((res: any) => {
+        console.log(res);
 
-        return error;
+        const post: Post = {
+          id: res[0].data.children[0].data.id || "",
+          title: res[0].data.children[0].data.title || "",
+          author: res[0].data.children[0].data.author || "",
+          content: res[0].data.children[0].data.selftext || "",
+          thumbnail: res[0].data.children[0].data.thumbnail || "",
+          subreddit: res[0].data.children[0].data.subreddit,
+          created: res[0].data.children[0].data.created_utc || 0,
+          score: res[0].data.children[0].data.score || 0,
+          flair: res[0].data.children[0].data.link_flair_text || "",
+          flair_background_color:
+            res[0].data.children[0].data.link_flair_background_color || "",
+        };
+
+        console.log(res[1].data.children);
+
+        const comments: Comment[] = this.mapComments(res[1].data.children);
+
+        const postDetail: PostDetail = { post: post, comments: comments };
+        return postDetail;
       });
   }
 }
