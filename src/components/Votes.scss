@@ -1,0 +1,21 @@
+@import "../scss/var";
+
+.votes-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 90%;
+  p {
+    padding: 0;
+    margin: 0 !important;
+  }
+  span {
+    font-size: 1.5em;
+    transition: transform 100ms ease-in-out;
+    &:hover {
+      transform: scale(110%);
+      color: $orange;
+    }
+  }
+}

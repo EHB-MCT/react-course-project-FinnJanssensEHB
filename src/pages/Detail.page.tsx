@@ -1,19 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PostDetail from "../components/PostDetail";
+import PostDetailComponent from "../components/PostDetailComponent";
 import { redditService } from "../services/reddit.service";
+import { PostDetail } from "../store/posts/initialState";
 
 export default function Detail() {
   const params = useParams();
-  redditService.getPost(params.subreddit || "", params.id || "").then((res) => {
-    console.log(res);
-  });
+  const [postDetail, setPostDetail] = useState();
+
+  useEffect(() => {
+    console.log("Use Effect");
+
+    redditService
+      .getPost(params.subreddit || "", params.id || "")
+      .then((p: any) => {
+        console.log(p);
+        setPostDetail(p);
+      });
+  }, []);
+
   return (
     <>
-      <PostDetail
-        subreddit={params.subreddit || ""}
-        id={params.id || ""}
-      ></PostDetail>
+      {postDetail ? (
+        <PostDetailComponent postDetail={postDetail}></PostDetailComponent>
+      ) : (
+        <></>
+      )}
     </>
   );
 }

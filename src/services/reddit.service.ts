@@ -9,6 +9,8 @@ class RedditService {
     return fetch(this.BASE_URL)
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
+
         return data.data.children;
       })
       .catch(function (error) {
@@ -18,10 +20,6 @@ class RedditService {
 
   private mapComments(data: any[]): Comment[] {
     if (Array.isArray(data) && data.length > 0 && data != null) {
-      console.log(data);
-
-      console.log("true");
-
       const comments: Comment[] = data.map((comment: any): Comment => {
         return {
           id: comment.data.id || "",
@@ -43,14 +41,22 @@ class RedditService {
     )
       .then(async (response) => {
         if (response.ok) {
+          console.log(response);
+          console.log(
+            `https://mighty-earth-63459.herokuapp.com/https://www.reddit.com/r/${subreddit}/${id}.json`
+          );
+
           return response.json();
         }
       })
       .then((res: any) => {
-        console.log(res);
+        console.log("HERE", res[0].data.children[0].data.is_video);
 
         const post: Post = {
           id: res[0].data.children[0].data.id || "",
+          is_video: res[0].data.children[0].data.is_video || false,
+          video_src:
+            res[0].data.children[0].data.media.reddit_video.fallback_url || "",
           title: res[0].data.children[0].data.title || "",
           author: res[0].data.children[0].data.author || "",
           content: res[0].data.children[0].data.selftext || "",
@@ -63,11 +69,11 @@ class RedditService {
             res[0].data.children[0].data.link_flair_background_color || "",
         };
 
-        console.log(res[1].data.children);
-
         const comments: Comment[] = this.mapComments(res[1].data.children);
 
         const postDetail: PostDetail = { post: post, comments: comments };
+        console.log(postDetail);
+
         return postDetail;
       });
   }

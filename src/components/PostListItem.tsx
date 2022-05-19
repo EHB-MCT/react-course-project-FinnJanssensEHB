@@ -2,57 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Post } from "../store/posts/initialState";
 import "./PostListItem.scss";
+import Votes from "./Votes";
 
 export default function PostListItem(props: any) {
   let post: Post = props.post;
   const [MoreActions, ShowMoreActions] = useState(false);
-  const [Votes, ChangeVotes] = useState(post.score);
-  const [Upvote, SetUpvote] = useState(false);
-  const [Downvote, SetDownvote] = useState(false);
 
   const emojiRegex: RegExp = /\:(.*?)\:/g;
 
-  function upVote() {
-    if (!Upvote) {
-      ChangeVotes(Votes + 1);
-      SetUpvote(true);
-      SetDownvote(false);
-    } else {
-      ChangeVotes(Votes - 1);
-      SetUpvote(false);
-      SetDownvote(false);
-    }
-  }
-
-  function downVote() {
-    if (!Downvote) {
-      ChangeVotes(Votes - 1);
-      SetDownvote(true);
-      SetUpvote(false);
-    } else {
-      ChangeVotes(Votes + 1);
-      SetDownvote(false);
-      SetUpvote(false);
-    }
-  }
-
   return (
     <div className="postListItem box-shadow">
-      <div className="votes-container">
-        <span
-          aria-hidden="true"
-          data-icon="&#xe907;"
-          onClick={upVote}
-          className={Upvote ? "orange" : ""}
-        ></span>
-        <p className={Upvote || Downvote ? "orange" : ""}>{Votes}</p>
-        <span
-          aria-hidden="true"
-          data-icon="&#xe908;"
-          onClick={downVote}
-          className={Downvote ? "orange" : ""}
-        ></span>
-      </div>
+      <Votes score={post.score}></Votes>
       <Link
         to={`/r/${post.subreddit}/${post.id}`}
         className="post-content-container"

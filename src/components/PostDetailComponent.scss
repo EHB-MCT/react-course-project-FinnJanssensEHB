@@ -1,0 +1,47 @@
+@import "../scss/var";
+
+.PostDetailComponent {
+  grid-column: 4 / 10;
+  background-color: #fff;
+  padding: 1em;
+  margin-top: 1em;
+  border-radius: $border-radius;
+
+  .PostDetailHeader {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    h2 {
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      font-size: 0.9em;
+      font-weight: 300;
+      margin-bottom: 1em;
+    }
+
+    .PostDetailTitleContainer {
+      margin-left: 2em;
+    }
+  }
+
+  .postDetailMediaContainer {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    img {
+      width: 100%;
+      border-radius: $border-radius;
+    }
+    video {
+      border-radius: $border-radius;
+    }
+  }
+}

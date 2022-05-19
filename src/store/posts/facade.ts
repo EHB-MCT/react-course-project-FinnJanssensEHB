@@ -12,6 +12,7 @@ export const fetchPosts = () => {
         const posts: Post[] = res.map((post: any): Post => {
           return {
             id: post.data.id || "",
+            is_video: post.data.is_video || false,
             title: post.data.title || "",
             author: post.data.author || "",
             content: post.data.selftext || "",
