@@ -15,12 +15,18 @@ export default function PostListItem(props: any) {
       <Votes score={post.score}></Votes>
 
       <div className="post-content-container">
-        <p
-          className="flair"
-          style={{ backgroundColor: post.flair_background_color }}
-        >
-          {post.flair.replace(emojiRegex, "")}
-        </p>
+        {post.flair ? (
+          <p
+            className="flair"
+            style={{
+              backgroundColor: post.flair_background_color,
+            }}
+          >
+            {post.flair.replace(emojiRegex, "")}
+          </p>
+        ) : (
+          <></>
+        )}
         <Link to={`/r/${post.subreddit}/${post.id}`} className="linkContainer">
           <h2>
             {post.title.length > 50

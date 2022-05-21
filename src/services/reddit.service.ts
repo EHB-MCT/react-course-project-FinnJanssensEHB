@@ -68,7 +68,7 @@ class RedditService {
           flair: res[0].data.children[0].data.link_flair_text || "",
           flair_background_color:
             res[0].data.children[0].data.link_flair_background_color || "",
-          image_src: res[0].data.children[0].data.url || "",
+          url: res[0].data.children[0].data.url || "",
         };
 
         let comments: Comment[] = [];
