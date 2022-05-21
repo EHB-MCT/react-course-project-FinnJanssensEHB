@@ -11,6 +11,7 @@ export interface Post {
   score: number;
   flair: string;
   flair_background_color: string;
+  image_src?: string;
 }
 
 export interface Comment {

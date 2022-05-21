@@ -56,7 +56,8 @@ class RedditService {
           id: res[0].data.children[0].data.id || "",
           is_video: res[0].data.children[0].data.is_video || false,
           video_src:
-            res[0].data.children[0].data.media.reddit_video.fallback_url || "",
+            res[0].data.children[0].data.media?.reddit_video?.fallback_url ||
+            "",
           title: res[0].data.children[0].data.title || "",
           author: res[0].data.children[0].data.author || "",
           content: res[0].data.children[0].data.selftext || "",
@@ -67,6 +68,7 @@ class RedditService {
           flair: res[0].data.children[0].data.link_flair_text || "",
           flair_background_color:
             res[0].data.children[0].data.link_flair_background_color || "",
+          image_src: res[0].data.children[0].data.url || "",
         };
 
         const comments: Comment[] = this.mapComments(res[1].data.children);

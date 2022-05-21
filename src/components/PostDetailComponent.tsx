@@ -33,7 +33,7 @@ export default function PostDetailComponent(props: any) {
         </div>
       ) : postDetail.post.thumbnail.startsWith("http") ? (
         <div className="postDetailMediaContainer">
-          <img src={postDetail.post.thumbnail} alt="" />
+          <img src={postDetail.post.image_src} alt="" />
         </div>
       ) : (
         <></>
