@@ -17,18 +17,27 @@
     flex-direction: column;
     justify-content: space-around;
     align-self: flex-end;
-    color: #000;
-    text-decoration: none;
-    h2 {
-      font-weight: bold;
-      font-size: 1.1em;
+    p {
       margin-bottom: 0.5em;
     }
 
-    p {
-      font-size: 0.9em;
-      font-weight: 300;
-      margin-bottom: 1em;
+    .linkContainer {
+      text-decoration: none !important;
+      h2 {
+        text-decoration: none !important;
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 0.5em;
+        color: #000;
+      }
+
+      p {
+        text-decoration: none !important;
+        font-size: 0.9em;
+        font-weight: 300;
+        margin-bottom: 1em;
+        color: #000;
+      }
     }
 
     .post-actions-container {
