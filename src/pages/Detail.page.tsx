@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import PostDetailComponent from "../components/PostDetailComponent";
 import { redditService } from "../services/reddit.service";
 import { PostDetail } from "../store/posts/initialState";
+import CommentsContainer from "../components/CommentsContainer";
 
 export default function Detail() {
   const params = useParams();
-  const [postDetail, setPostDetail] = useState();
+  const [postDetail, setPostDetail] = useState<PostDetail>();
 
   useEffect(() => {
     console.log("Use Effect");
@@ -22,7 +23,10 @@ export default function Detail() {
   return (
     <>
       {postDetail ? (
-        <PostDetailComponent postDetail={postDetail}></PostDetailComponent>
+        <>
+          <PostDetailComponent postDetail={postDetail}></PostDetailComponent>
+          <CommentsContainer comments={postDetail.comments}></CommentsContainer>
+        </>
       ) : (
         <></>
       )}

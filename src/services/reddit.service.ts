@@ -71,10 +71,20 @@ class RedditService {
           image_src: res[0].data.children[0].data.url || "",
         };
 
-        const comments: Comment[] = this.mapComments(res[1].data.children);
+        let comments: Comment[] = [];
+        comments =
+          res[1].data.children.map((comment: any): Comment => {
+            return {
+              id: comment?.data?.id || "",
+              author: comment?.data?.author || "",
+              body: comment?.data?.body || "",
+              score: comment?.data?.score || 0,
+            };
+          }) || [];
 
+        comments.pop();
         const postDetail: PostDetail = { post: post, comments: comments };
-        console.log(postDetail);
+        console.log("COMMENTS", postDetail.comments);
 
         return postDetail;
       });
