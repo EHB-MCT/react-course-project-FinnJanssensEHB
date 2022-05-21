@@ -17,7 +17,7 @@ export default function CommentsContainer(props: Props) {
     <div className="commentsContainer box-shadow">
       <p className="commentsContainerTitle">COMMENTS</p>
       {props.comments.map((comment: Comment) => (
-        <CommentComponent comment={comment}></CommentComponent>
+        <CommentComponent key={comment.id} comment={comment}></CommentComponent>
       ))}
     </div>
   );
