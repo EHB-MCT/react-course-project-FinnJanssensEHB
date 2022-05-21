@@ -8,6 +8,7 @@ import PostListItem from "./PostListItem";
 import "./PostContainer.scss";
 import { useLoading } from "../hooks/useLoading.hook";
 import Loader from "./Loader";
+import CreatePost from "./CreatePost";
 
 export default function PostContainer() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ export default function PostContainer() {
 
   return (
     <div className="PostContainer box-shadow">
+      <CreatePost></CreatePost>
       {loading ? (
         <Loader instances={10} />
       ) : (
