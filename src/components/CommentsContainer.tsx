@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useLoading } from "../hooks/useLoading.hook";
 import { Comment, PostDetail } from "../store/posts/initialState";
+import CommentComponent from "./CommentComponent";
 import "./CommentsContainer.scss";
 
 interface Props {
@@ -13,10 +14,10 @@ export default function CommentsContainer(props: Props) {
   useEffect(() => {}, []);
 
   return (
-    <div className="commentsContainer">
-      <p>COMMENTS</p>
+    <div className="commentsContainer box-shadow">
+      <p className="commentsContainerTitle">COMMENTS</p>
       {props.comments.map((comment: Comment) => (
-        <h1>{comment.author}</h1>
+        <CommentComponent comment={comment}></CommentComponent>
       ))}
     </div>
   );

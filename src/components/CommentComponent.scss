@@ -1,0 +1,36 @@
+.Comment {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 18fr;
+  align-items: center;
+  margin-bottom: 2em;
+  height: 60px;
+
+  img {
+    max-width: 100%;
+    margin-left: 0.2em;
+  }
+
+  .commentContentContainer {
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 1em;
+
+    h2 {
+      font-weight: 700;
+      margin-bottom: 0.4em;
+    }
+
+    .truncate {
+      padding-bottom: 0.14em;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      word-break: "none";
+      overflow: hidden;
+      hyphens: auto;
+      text-align: left;
+    }
+  }
+}

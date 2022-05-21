@@ -6,4 +6,10 @@
   padding: 1em;
   margin-top: 1em;
   border-radius: $border-radius;
+
+  .commentsContainerTitle {
+    margin-bottom: 1em;
+    font-weight: 300;
+    font-size: 1.2em;
+  }
 }

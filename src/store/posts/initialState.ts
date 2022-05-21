@@ -15,10 +15,10 @@ export interface Post {
 }
 
 export interface Comment {
-  id?: string;
-  author?: string;
-  body?: string;
-  score?: number;
+  id: string;
+  author: string;
+  body: string;
+  score: number;
   children?: Comment[];
 }
 

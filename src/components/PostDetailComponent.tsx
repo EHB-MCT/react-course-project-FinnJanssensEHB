@@ -20,8 +20,8 @@ export default function PostDetailComponent(props: any) {
           >
             {postDetail.post.flair.replace(emojiRegex, "")}
           </p>
-          <h2>{postDetail.post.title}</h2>
-          <p>
+          <h2 className="postTitle">{postDetail.post.title}</h2>
+          <p className="postSubTitle">
             r/{postDetail.post.subreddit} - Posted by u/{postDetail.post.author}{" "}
             x hours ago
           </p>
