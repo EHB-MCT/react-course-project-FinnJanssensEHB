@@ -1,44 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+# Bronnen
 
-## Available Scripts
+## Cors Anywhere by Rob--W
 
-In the project directory, you can run:
+https://github.com/Rob--W/cors-anywhere
 
-### `npm start`
+Deze node server run ik op Heroku. Deze server voegt automatisch CORS headers toe aan requests om CORS problemen te vermijden. Al mijn fetch requests gaan door deze server.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## useLoading hook by Studio Hyperdrive
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Deze hook schreven we tijdens onze week bij Studio Hyperdrive en wordt gebruikt om een loading component te tonen zolang data niet is geladen.
 
-### `npm test`
+## Redux State Management by Studio Hyperdrive
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://stackblitz.com/edit/react-ts-p139zx
 
-### `npm run build`
+Op dit project (aangeboden door Studio Hyperdrive) heb ik me gebasseerd voor de structuur van het state management met Redux.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## CSS Reset by Eric A. and Kathryn S. Meyer
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+https://meyerweb.com/eric/tools/css/reset/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Dit reset alle padding's, margin's en nog wat andere dingen om de CSS-development te versimpelen.
 
-### `npm run eject`
+## React Content Loader by danilowoz
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+https://www.npmjs.com/package/react-content-loader
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+React components die gebruik maken van SVG's voor het tonen van makkelijk aanpasbare loaders.
