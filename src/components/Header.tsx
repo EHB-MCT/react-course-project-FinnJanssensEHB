@@ -26,10 +26,14 @@ export default function Header() {
         </p>
       </div>
       <div className="notifications-container">
-        <p>notifications</p>
+        <span aria-hidden="true" data-icon="&#xe90d;"></span>
       </div>
       <div className="profile-menu-container">
-        <p>Profile</p>
+        <img
+          src="https://iconape.com/wp-content/png_logo_vector/user-circle.png"
+          alt=""
+        />
+        <span aria-hidden="true" data-icon="&#xe908;"></span>
       </div>
     </div>
   );
