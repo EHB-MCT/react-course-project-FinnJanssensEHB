@@ -1,14 +1,22 @@
 import React from "react";
 import Search from "./Search";
 import "./Header.scss";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  let navigate = useNavigate();
+  const routeChange = () => {
+    let path = "/";
+    navigate(path);
+  };
+
   return (
     <div className="Header box-shadow">
       <div className="logo-container">
         <img
           src="https://logos-world.net/wp-content/uploads/2020/10/Reddit-Logo.png"
           alt="Reddit Logo"
+          onClick={routeChange}
         />
       </div>
       <div className="search-container">
