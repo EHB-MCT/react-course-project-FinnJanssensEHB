@@ -28,8 +28,13 @@ export default function PostDetailComponent(props: any) {
           )}
           <h2 className="postTitle">{postDetail.post.title}</h2>
           <p className="postSubTitle">
-            r/{postDetail.post.subreddit} - Posted by u/{postDetail.post.author}{" "}
-            x hours ago
+            r/
+            <a
+              href={`https://frontend-reddit-angular.web.app/r/${postDetail.post.subreddit}`}
+            >
+              {postDetail.post.subreddit}
+            </a>
+            &nbsp;- Posted by u/{postDetail.post.author} x hours ago
           </p>
           {postDetail.post.url?.startsWith("https://i.redd.it/") ||
           postDetail.post.url?.startsWith("https://v.redd.it/") ||

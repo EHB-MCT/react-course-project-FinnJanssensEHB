@@ -23,8 +23,12 @@
 
     .postSubTitle {
       font-size: 1.1em;
-      font-weight: 300;
+      font-weight: 300 !important;
       margin-bottom: 0.5em;
+      a {
+        text-decoration: none !important;
+        color: black !important;
+      }
     }
 
     .PostDetailTitleContainer {
