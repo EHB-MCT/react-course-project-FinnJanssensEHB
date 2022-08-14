@@ -23,19 +23,24 @@
 
     .linkContainer {
       text-decoration: none !important;
-      h2 {
-        text-decoration: none !important;
-        font-weight: bold;
-        font-size: 1.1em;
-        margin-bottom: 0.5em;
-        color: #000;
-      }
+      color: #000;
+    }
+    h2 {
+      text-decoration: none !important;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 0.5em;
+      color: #000;
+    }
 
-      p {
+    p {
+      text-decoration: none !important;
+      font-size: 0.9em;
+      font-weight: 300;
+      margin-bottom: 1em;
+      color: #000;
+      a {
         text-decoration: none !important;
-        font-size: 0.9em;
-        font-weight: 300;
-        margin-bottom: 1em;
         color: #000;
       }
     }

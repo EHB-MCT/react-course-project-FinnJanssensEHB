@@ -27,16 +27,25 @@ export default function PostListItem(props: any) {
         ) : (
           <></>
         )}
-        <Link to={`/r/${post.subreddit}/${post.id}`} className="linkContainer">
-          <h2>
+        <h2>
+          <Link
+            to={`/r/${post.subreddit}/${post.id}`}
+            className="linkContainer"
+          >
             {post.title.length > 50
               ? post.title.substring(0, 49) + "..."
               : post.title}
-          </h2>
-          <p>
-            r/{post.subreddit} - Posted by u/{post.author} x hours ago
-          </p>
-        </Link>
+          </Link>
+        </h2>
+        <p>
+          r/
+          <a
+            href={`https://frontend-reddit-angular.web.app/r/${post.subreddit}`}
+          >
+            {post.subreddit}
+          </a>
+          - Posted by u/{post.author} x hours ago
+        </p>
         <div className="post-actions-container">
           <span aria-hidden="true" data-icon="&#xe903;"></span>
           <span aria-hidden="true" data-icon="&#xe904;"></span>
